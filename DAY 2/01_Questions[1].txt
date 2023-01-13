@@ -1,0 +1,25 @@
+1. What is the difference between JDK, JRE, and JVM?
+2. How many types of memory areas are allocated by JVM?
+3. What is JIT compiler?
+4. What is a ClassLoader?
+5. What are the differences between Heap and Stack Memory in Java?
+6. What if I write static public void instead of public static void?
+7. What are the various access specifiers in Java?
+8. What is the difference between access modifiers and access specifiers in java
+9. What are the types of variables in java
+10.What is the purpose of static methods and variables?
+11.What will be the initial value of an object reference which is defined as an instance variable?
+12.How many types of constructors are used in Java?
+13.Does constructor return any value?
+14.What do you understand by copy constructor in Java?
+15.What are the differences between the constructors and methods?
+16.What are the restrictions that are applied to the Java static methods?
+17.Why is the main method static?
+18.What is the static block?
+19.What is the difference between static (class) method and instance method?
+20.Can we make constructors static?
+21.What is this keyword in java?
+22.How can constructor chaining be done using this keyword?
+23.What are Wrapper Classes in Java.
+24.Differentiate between instance and local variables.
+25.What happens if the static modifier is not included in the main method signature in Java?
