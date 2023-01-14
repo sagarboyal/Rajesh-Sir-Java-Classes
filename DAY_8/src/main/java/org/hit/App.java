@@ -19,14 +19,18 @@ public class App
         Integer empid;
         Employee employee;
         EmployeeService service=new EmployeeServiceImp();
+        System.out.println("\nEmployee Table ->");
         do{
-            System.out.println("1->ADD 2->UPDATE 3->DELETE 4->SEARCH 5->DISPLAY 6->EXIT");
+            System.out.println("Select Option:");
+            System.out.println("1->ADD\t\t2->UPDATE \n3->DELETE\t4->SEARCH \n5->DISPLAY\t6->EXIT");
             ch=scan.nextInt();
             switch(ch){
                 case 1:
-                    System.out.println("Enter Employee Details");
+                    System.out.println("Enter Employee id name and salary");
                     employee=new Employee(scan.nextInt(),scan.next(),scan.nextFloat());
-                    service.addEmployee(employee);
+                    boolean flag = service.addEmployee(employee);
+                    if(flag) System.out.println(employee.getEname()+" Record Added");
+                    else System.out.println("Employee id Already Present");
                     break;
                 case 2:
                     System.out.println("enter Employee id ");
@@ -52,8 +56,7 @@ public class App
                     if(employee == null){
                         System.out.println("Record not found");
                     } else {
-                        System.out.println("Deleted record ");
-                        System.out.println(employee);
+                        System.out.println(employee+" Deleted From Database");
                         service.deleteEmployee(empid);
                         System.out.println("Record deleted successfully");
                     }
