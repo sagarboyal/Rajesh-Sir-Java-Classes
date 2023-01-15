@@ -1,11 +1,12 @@
-package org.hit.repository;
+package org.hit.repository.collection;
 
 import org.hit.model.Employee;
+import org.hit.repository.EmployeeRepo;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeRepoImp implements EmployeeRepo{
+public class EmployeeRepoImp implements EmployeeRepo {
     ArrayList<Employee> emp = new ArrayList<>();
     @Override
     public Employee addEmployee(Employee e) {

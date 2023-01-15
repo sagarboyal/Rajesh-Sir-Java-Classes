@@ -2,9 +2,8 @@ package org.hit.service;
 
 import org.hit.model.Employee;
 import org.hit.repository.EmployeeRepo;
-import org.hit.repository.EmployeeRepoImp;
+import org.hit.repository.mysql.EmployeeRepoImp;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeServiceImp implements EmployeeService{

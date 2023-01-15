@@ -19,10 +19,11 @@ public class App
         Integer empid;
         Employee employee;
         EmployeeService service=new EmployeeServiceImp();
-        System.out.println("\nEmployee Table ->");
+        System.out.println("Employee Table ->");
         do{
             System.out.println("Select Option:");
             System.out.println("1->ADD\t\t2->UPDATE \n3->DELETE\t4->SEARCH \n5->DISPLAY\t6->EXIT");
+            System.out.println("Enter Choice:");
             ch=scan.nextInt();
             switch(ch){
                 case 1:
