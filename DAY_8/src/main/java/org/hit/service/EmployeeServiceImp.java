@@ -2,7 +2,7 @@ package org.hit.service;
 
 import org.hit.model.Employee;
 import org.hit.repository.EmployeeRepo;
-import org.hit.repository.mysql.EmployeeRepoImp;
+import org.hit.repository.jdbc.EmployeeRepoImp;
 
 import java.util.List;
 

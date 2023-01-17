@@ -1,4 +1,4 @@
-package org.hit.repository.mysql;
+package org.hit.repository.jdbc;
 
 import org.hit.model.Employee;
 import org.hit.repository.EmployeeRepo;
