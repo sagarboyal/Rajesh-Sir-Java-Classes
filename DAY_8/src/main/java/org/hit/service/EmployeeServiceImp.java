@@ -3,11 +3,14 @@ package org.hit.service;
 import org.hit.model.Employee;
 import org.hit.repository.EmployeeRepo;
 import org.hit.repository.hibernate.EmployeeRepoImp;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component("employeeService")
 public class EmployeeServiceImp implements EmployeeService{
-    private EmployeeRepo repository=new EmployeeRepoImp();
+    @Autowired
+    private EmployeeRepo repository;
 
     @Override
     public boolean addEmployee(Employee emp) {

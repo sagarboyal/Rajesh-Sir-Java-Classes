@@ -1,4 +1,4 @@
-package org.hit.repository.hibernate;
+package config;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -6,13 +6,18 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.service.ServiceRegistry;
 import org.hit.model.Employee;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class DAOConfiguration {
-    private static SessionFactory sessionFactory;
-    private DAOConfiguration() {
+@Configuration
+@ComponentScan(basePackages = "org.hit")
+public class SpringConfiguration {
+    @Bean
+    public SessionFactory getSessionFactory(){
         Map<String,Object> settings = new HashMap<>();
 
         settings.put("hibernate.connection.driver_class","com.mysql.cj.jdbc.Driver");
@@ -27,9 +32,6 @@ public class DAOConfiguration {
         settings.put("hibernate.current_session_context_class","thread");
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(settings).build();
         Metadata metadata = new MetadataSources(serviceRegistry).addAnnotatedClass(Employee.class).getMetadataBuilder().build();
-        sessionFactory = metadata.getSessionFactoryBuilder().build();
-    }
-    public static SessionFactory getSessionFactory(){
-        return sessionFactory;
+        return metadata.getSessionFactoryBuilder().build();
     }
 }

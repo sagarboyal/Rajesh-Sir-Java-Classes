@@ -1,8 +1,10 @@
 package org.hit;
 
+import config.SpringConfiguration;
 import org.hit.model.Employee;
 import org.hit.service.EmployeeService;
-import org.hit.service.EmployeeServiceImp;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Scanner;
 
@@ -15,10 +17,11 @@ public class App
     public static void main( String[] args )
     {
         Scanner scan=new Scanner(System.in);
+        ApplicationContext context= new AnnotationConfigApplicationContext(SpringConfiguration.class);
         int ch;
         Integer empid;
         Employee employee;
-        EmployeeService service=new EmployeeServiceImp();
+        EmployeeService service=context.getBean("employeeService",EmployeeService.class);
         System.out.println("Employee Table ->");
         do{
             System.out.println("Select Option:");
@@ -28,7 +31,10 @@ public class App
             switch(ch){
                 case 1:
                     System.out.println("Enter Employee id name and salary");
-                    employee=new Employee(scan.nextInt(),scan.next(),scan.nextFloat());
+                    employee=context.getBean("employee", Employee.class);
+                    employee.setEid(scan.nextInt());
+                    employee.setEname(scan.next());
+                    employee.setSalary(scan.nextFloat());
                     boolean flag = service.addEmployee(employee);
                     if(flag) System.out.println(employee.getEname()+" Record Added");
                     else System.out.println("Employee id Already Present");
